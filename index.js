@@ -18,8 +18,16 @@ app.get("/", function (req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
 
+// handler empty params
+app.get("/api", (req, res) => {
+  const now = new Date();
+  res.json({
+    unix: now.getTime(),
+    utc: now.toUTCString()
+  });
+});
 
-// your first API endpoint... 
+// handler date params api
 app.get("/api/:date", function (req, res) {
   const { date: dateParams } = req.params;
   let dateRes;
@@ -32,7 +40,7 @@ app.get("/api/:date", function (req, res) {
     dateRes = new Date(parseInt(dateParams))
   } else {
     // Date string
-    dateRes = new Date();
+    dateRes = new Date(dateParams);
   }
 
   // Check for invalid date
@@ -41,8 +49,8 @@ app.get("/api/:date", function (req, res) {
   }
 
   res.json({
-    unix: d.getTime(),
-    utc: d.toUTCString()
+    unix: dateRes.getTime(),
+    utc: dateRes.toUTCString()
   });
 });
 

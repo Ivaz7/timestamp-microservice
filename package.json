@@ -1,13 +1,21 @@
 {
   "name": "timestamp-microservice",
   "version": "1.0.0",
-  "description": "",
+  "description": "timestamp microservice backend api",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "timestamp"
+  ],
+  "author": "Ivaz Reza",
   "license": "ISC",
-  "type": "commonjs"
+  "type": "module",
+  "dependencies": {
+    "@types/node": "^22.15.3",
+    "express": "^5.1.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  }
 }
